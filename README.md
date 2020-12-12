@@ -18,7 +18,7 @@ This is a simple application that allows the user to try out different colour sc
 All of the components are defined for this challenge, but you need to add state management with the `useState` hook.
 
 When you are done with the challenge, it should work like what you see in this video:
-[Complete app example](https://youtu.be/iS9VNq5OFTE)
+[Complete app example](https://youtu.be/Mau4IVMsG6w)
 
 **Before you begin**
 
@@ -32,7 +32,7 @@ Examine the code and the components that make up the app. Decide where state sho
 - with the MessageCard text colour and background colours
 - set to the values currently selected in the ColourChoicePanel
 	
- 1. Right now the message, text colour, and background(card) colour are managed as local variables. Add state to manage them properly.
+ 1. Right now the message, text colour, and background(card) colour are managed as local variables. Add state to manage them properly (hint - start in App.js).
  2. Implement controlled components in MessageField and ColourChoicePanel
     that update the state values
  3. Pass the state values and state value modifying functions to components as needed to complete the objective

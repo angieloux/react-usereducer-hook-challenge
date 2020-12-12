@@ -3,7 +3,7 @@ import {CenteredRow, Card} from './Styled'
 
 const MessageCard = (props) => {
 	/* Part 1, Objective 1
-	// You are given a bit of guidance here - the text and background
+	// You are given a bit of guidance here - the text and 
 	// colours are already being received as props.
 	// 
 	// Since the state values are only used for display in this component,
