@@ -1,4 +1,4 @@
-# Challenge Title
+# React Hooks Challenge
 
 ## Setup
 
@@ -10,13 +10,71 @@
 6. Verify the application runs as expected
 
 ### What you should see
-_Add an image and/or description of what will be seen when the scaffold successfully runs_
+This is a simple application that allows the user to try out different colour schemes for background and text colours.
 
+![application image](app-start-image.png)
 
 ## Challenge
-_Description of the challenge, with clear steps. It may help to include a link to a video showing the completed working application._
+All of the components are defined for this challenge, but you need to add state management with the `useState` hook.
+
+When you are done with the challenge, it should work like what you see in this video:
+[Complete app example](https://youtu.be/iS9VNq5OFTE)
+
+**Before you begin**
+
+Follow the instructions to clone and verify the application scaffold is running as expected. 
+
+Examine the code and the components that make up the app. Decide where state should be defined, and how that state information will be shared between the components. You could practice drawing a component diagram to show this information, like what was shown in the video for this lesson. 
+
+**Part 1: Implement state in the application with the useState hook**
+
+**Objective 1**: Make the message typed into MessageField appear in MessageCard
+- with the MessageCard text colour and background colours
+- set to the values currently selected in the ColourChoicePanel
+	
+ 1. Right now the message, text colour, and background(card) colour are managed as local variables. Add state to manage them properly.
+ 2. Implement controlled components in MessageField and ColourChoicePanel
+    that update the state values
+ 3. Pass the state values and state value modifying functions to components as needed to complete the objective
+
+**Objective 2**: Make the button click set the message displayed to a random dad joke
+
+1. In MessageField, complete the implementation of the `handleClick` function for the Surprise me button to update the message in the state so that it appears on the card
+
+**Part 2: Implement an effect to display a joke on component load**
+
+Effects are things that we want to happen when a component loads, updates, or unmounts. With class components we do that by overriding the lifecycle methods, and with functional components we do it with the useEffect hook. 
+
+For this part of the challenge, you will set the message to a random joke from https://icanhazdadjoke.com when the app loads. This is an effect that should run for componentDidMount, and in the lesson you saw how to create an effect that runs only on mount with useEffect. 
+
+The first question is which component?
+
+The state is managed from App, and this effect will modify state, because it will update the message displayed by the application. When you can, the best design choice is to put the effect in the same component that owns the state if state is being modified by the effect. Sometimes this isn't possible, or isn't the best choice, but in this case it really is.
+
+Use the `useEffect` hook to execute a fetch when the App component mounts and display a random quote on the card. You can use the `getJoke` function in `utils/Services` to accomplish this, or you can do something else if you like. 
+
+The effect should only execute when the component mounts, not when it updates, so pay attention to your dependency array (the second argument to `useEffect`).
+
+**Bonus Fun**
+
+If you complete all parts of this challenge and want to practice some more, add a loading indicator to the page when you are fetching a joke. Depending on networking speed and other factors, it can take a second or two to get the joke back from the API and display it. 
+
+It is a common requirement to implement a loading indicator when you are performing some network or expensive data operation.
+
+Hopefully by now you can guess that this is done with a piece of state. Define a piece of state called `isLoading`, and set it to true before you call the API, and to false when the API fetch promise resolves and you update the state value. 
+
+You can display whatever you like to indicate that data is loading. You can just change the message if you like, or update the background colour every half second to a random colour ... feel free to add another component. The bonus won't be tested, so just make sure your code changes don't break any of the tests for the core challenge. Have fun with it!
 
 ## Tests and Submitting
+
+Note that the tests for this challenge use the `data-testid` attribute, which you will find in the application code. Leave those attributes in place or the tests will fail. Here's an example:
+
+```html
+<input name='text-colour'
+	data-testid='text-colour'
+	type='color'	
+/>
+```
 
 At any time you can run `yarn test` to see your progress. By default it will run in `watch` mode, and you will have to press `q` to quit. It will run the automated tests against your code and let you know what your progress is so far. Once you have all the tests passing, you can submit your challenge. To do this make sure you have committed your work:
 
@@ -29,6 +87,5 @@ At any time you can run `yarn test` to see your progress. By default it will run
 7. Wait and watch the final tests run, if you are successful it will automatically let your educators know you are finished.
 
 ## Example solution
-_Remove this section if you have not provided an example solution. Change the details below if necessary_
 
 An example solution can be found in the challenge-complete branch of this repository.
