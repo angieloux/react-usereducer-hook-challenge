@@ -18,7 +18,7 @@ This is a simple application that allows the user to try out different colour sc
 All of the components are defined for this challenge, but you need to add state management with the `useState` hook.
 
 When you are done with the challenge, it should work like what you see in this video:
-[Complete app example](https://youtu.be/Mau4IVMsG6w)
+[Complete app example]https://youtu.be/i_M3xKgcskE)
 
 **Before you begin**
 
