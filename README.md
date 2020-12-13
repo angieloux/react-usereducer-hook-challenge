@@ -57,13 +57,14 @@ The effect should only execute when the component mounts, not when it updates, s
 
 **Bonus Fun**
 
-If you complete all parts of this challenge and want to practice some more, add a loading indicator to the page when you are fetching a joke. Depending on networking speed and other factors, it can take a second or two to get the joke back from the API and display it. 
+**Refactor app to use a reducer**
 
-It is a common requirement to implement a loading indicator when you are performing some network or expensive data operation.
+Now that you have mastered the useState hook, refactor the application to use a reducer function and the `useReducer` hook. The reducer implementation should:
+- define a single state object with properties for each value
+- use a reducer function to implement changes to any of the state values
+- replace any calls to useState in your application
 
-Hopefully by now you can guess that this is done with a piece of state. Define a piece of state called `isLoading`, and set it to true before you call the API, and to false when the API fetch promise resolves and you update the state value. 
-
-You can display whatever you like to indicate that data is loading. You can just change the message if you like, or update the background colour every half second to a random colour ... feel free to add another component. The bonus won't be tested, so just make sure your code changes don't break any of the tests for the core challenge. Have fun with it!
+This bonus isn't tested, but your changes should not break any existing tests. You can see an example implementation in the challege-complete-reducer branch.
 
 ## Tests and Submitting
 
@@ -88,4 +89,4 @@ At any time you can run `yarn test` to see your progress. By default it will run
 
 ## Example solution
 
-An example solution can be found in the challenge-complete branch of this repository.
+An example solution can be found in the challenge-complete branch of this repository. A solution with a reducer instead of useState is in challenge-complete-reducer.
