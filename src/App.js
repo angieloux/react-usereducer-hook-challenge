@@ -1,18 +1,45 @@
-import React, {useState, useEffect} from 'react'
+import React, {useEffect, useReducer} from 'react'
 import MessageField from './MessageField'
 import MessageCard from './MessageCard'
 import ColourChoicePanel from './ColourChoicePanel'
 import {Heading} from './Styled'
 import {getJoke} from './utils/Services'
+import reducer from './utils/reducer'
 
 const App = () => {
-	// initialise state values
-	const [initialMessage, initialTextColour, initialCardColour] = ['', '#000000', '#FFFFFF']
 
-	const [message, setMessage] = useState(initialMessage)
-	const [textColour, setTextColour] = useState(initialTextColour)
-	const [cardColour, setCardColour] = useState(initialCardColour)
+	// set up initial state objects
+	const initialState = {
+		message: "",
+		textColour: "#000000",
+		cardColour: "#FFFFFF"
+	}
 
+	// refactor this to useReducer
+	const [store, dispatch] = useReducer(reducer, initialState)
+	const {message, textColour, cardColour} = store
+	
+
+	function setMessage(message) {
+		dispatch({
+			type: 'setMessage',
+			data: message
+		})
+	}
+
+	function setCardColour(colour) {
+		dispatch({
+			type: 'setCardColour',
+			data: colour
+		})
+	}
+
+	function setTextColour(colour) {
+		dispatch({
+			type: 'setTextColour',
+			data: colour
+		})
+	}
 	useEffect(() => {
 		getJoke(setMessage)
 	}, [])
